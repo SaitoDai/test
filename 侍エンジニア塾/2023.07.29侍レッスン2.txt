@@ -1,0 +1,59 @@
+実際の業務：アウトプットが全て
+自分からヒアリングして内容を詰めていく、相手からの期待値を超えていく
+積極性が大切
+上手く行かない事の方が多い　情報が足りない状態でスタートすることが殆ど。自分からいろいろと情報を取りに行く
+
+納期に間に合わない場合には納期調整もすることがある
+
+実際のプロフィールを作る場合は
+・写真を多め
+・SNSと紐づける
+
+Wordpress案件　3～5万
+Wordpressを頑張るなら行っても月30万
+Wordpress副業で50万は不可能　12~13万くらいが現実的
+Wordpressはできる人がどんどん増えてきている、今後どんどん単価が下がっていく。
+PHPは逆、どんどん案件ばかり増えていく
+月50万をやるなら独力で作業をする
+PHPに80％、HTML・CSSに20％
+
+先生は納期1ヶ月で20万
+3ヵ月で45万て言われたが、技術的に難しかったので途中で60万に交渉した。
+
+最高のものを作って、クライアントに感謝されなければならない
+
+
+毎日4時間32万　リーダー的な仕事（8時間）65万
+最初のお試し期間20万
+夜間平日2時間だと案件に入れない
+
+
+<1>
+  const osBtn = document.getElementById('os-btn');
+
+  osBtn.addEventListener('click', () =>{
+    const items = document.forms.osForm.os;
+
+    for (let i = 0; i < items.length; i++){
+      if (items[i].checked){
+        console.log(items[i].value);
+      }
+    }
+  });
+
+
+
+  const osBtn = document.getElementById('os-btn');
+
+  osBtn.addEventListener('click', () =>{
+    const items = document.forms.osForm.os;
+
+    console.log(items[i]);   ←なぜこれではダメなのか
+  });
+　
+<2>
+.valueプロパティとはなにか。例）console.log(items[i].value);　←Valueが無いとなぜダメなのか。
+
+
+.value で数値化する。数値化しないとコンソールに返せない。
+前半と後半とで同じ.value

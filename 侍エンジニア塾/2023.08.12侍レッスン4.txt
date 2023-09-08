@@ -1,0 +1,82 @@
+2023.08.12侍レッスン4
+
+
+次回質問用
+
+1
+6章 PHPでデータを更新しよう（UPDATE） #1　より
+
+<tr>
+<td>{$result['id']}</td>
+<td>{$result['name']}</td><td>{$result['furigana']}</td>
+<td>{$result['email']}</td>
+<td>{$result['age']}</td>
+<td>{$result['address']}</td>
+<td><a href='update.php?id={$result['id']}'>編集</a></td>  ←
+<td><a href='delete.php?id={$result['id']}'>削除</a></td>
+</tr>
+
+<td><a href='update.php?id={$result['name']}'>編集</a></td> などで行うことはできるのか、可能ならばどうやるのか。
+
+
+2
+11章 商品管理アプリにデータの一覧表示機能を実装しよう より
+CSSにて 
+  a,
+ button {
+   transition: 0.3s;
+ }
+などとあり、'button'というセレクタは無い。なのにHP内のボタン箇所にしっかりと反映されているのはなぜか。
+
+
+3
+12章 商品管理アプリにデータの並び替えと検索機能を実装しよう　より
+PHPにて、
+<h1><?= echo $keyword; ?>商品一覧</h1>　→　エラー。
+<h1><?php echo $keyword; ?>商品一覧</h1>　→　だと通る
+
+<?php foreach ($vendor_codes as $vendor_code) { →だと通る(<?= にするとエラー)
+   echo "<option value='{$book}'>{$book}</option>";
+   }
+   ?>
+なぜか。
+
+4
+PDO::FETCH_COLUMN、PDO::FETCH_ASSOC　について
+PDOクラスのFETCH_COLUMN定数でるあという認識だが、echoで数値を確認してみたら7と返ってきた。
+PDO::FETCH_ASSOCは1と返ってきた。
+これはいかなる場合においても同様の数値なのか。（定数なので）であれば、直接数値を打った方が良くないか。
+
+5
+14章 商品管理アプリにデータの更新機能を実装しよう　より
+<tr>
+<td>{$product['product_code']}</td>
+<td>{$product['product_name']}</td>
+<td>{$product['price']}</td>
+<td>{$product['stock_quantity']}</td>
+<td>{$product['vendor_code']}</td>
+<td><a href='update.php?id={$product['id']}'><img src='images/edit.png' alt='編集' class='edit-icon'></a></td>                        
+</tr>                    
+";
+a href=' ' ←なぜシングルクォーテーションなのか。PHPの中だからか。
+
+
+6
+14章 商品管理アプリにデータの更新機能を実装しよう　より
+なぜIDだけ$_GETで受け取っているのか。
+
+7
+14章 商品管理アプリにデータの更新機能を実装しよう　より
+IDはGETとPOSTの両方で送っていると思うが、30行目 $stmt_update->bindValue(':id', $_GET['id'], PDO::PARAM_INT);
+で引数2を$_POST['id']とするとエラーになる。なぜか。
+
+8
+8章　コントローラーを作成しよう　より
+     public function index() {        
+         return view('posts.index');
+     }
+index()はユーザ定義関数のため、適当な名前でも仕組み上は問題ないか？
+
+9
+border-collapse: collapse;
+これをやらないとアンダーラインが出せない？

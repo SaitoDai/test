@@ -1,0 +1,28 @@
+1: 14章 投稿のCRUD機能を作成しよう #3　より
+Route::patch('/posts/{post}', [PostController::class, 'update'])->name('posts.update');
+{posts}にしたところ、更新されてかつ投稿までされるようになった。なぜか。
+
+
+2：catコマンドに付いて
+cat C:\Users\Dai Saito/.ssh/id_rsa.pubと打ったところ、
+'cat' is not recognized as an internal or external command,
+operable program or batch file.と返ってきた。
+
+
+3:todoアプリのmigrateについて
+前回のTwitter風ではmigrateしたときにfailed jobというテーブルは無かったが今回は出てきた。なぜか。
+
+4：laraelのパッケージとは？
+「3.2 Laravelで認証機能を作成する方法」の表の意味が分からない。
+Laravel ui　と　Bootstrap　の関係が良く分からない。どういう関係なのか？
+
+5：GmailをSMTPサーバーに登録した際にアプリパスワードなるものを設定したが、無数に存在するメールドメインに対応できるのか。
+@outolook, @yahoo　など。
+
+
+6：
+$table->string('title');
+->string()である理由は？　->text()を使わないのはなぜか？　ちなみにtext()でもできた。
+
+7：　8.2 ユーザーがログイン済みかどうか認証しよう　より
+->middleware('auth');　が良く分からない。

@@ -1,0 +1,117 @@
+1
+try {
+  $pdo = new PDO($dsn, $user, $password);
+
+  if (isset($_GET['order'])) {
+
+    $order = $_GET['order'];
+  }else{
+    $order = NULL;
+  }
+
+    if($order === 'desc') {
+      $sql = 'SELECT * FROM books ORDER BY id DESC';
+
+    } else {
+
+      $sql = 'SELECT * FROM books ORDER BY id ASC';
+  }
+  $stmt = $pdo->query($sql);
+
+  $stmt->execute();
+
+  $books = $stmt->fetchAll(PDO::FETCH_ASSOC);
+  } catch (PDOException $e){
+    exit($e->getMessage());
+    
+}
+だと動く。
+
+しかし、
+try {
+  $pdo = new PDO($dsn, $user, $password);
+
+  if (isset($_GET['order']) === 'desc') {
+
+      $sql = 'SELECT * FROM books ORDER BY id DESC';
+
+    } else {
+
+      $sql = 'SELECT * FROM books ORDER BY id ASC';
+  }
+  $stmt = $pdo->query($sql);
+
+  $stmt->execute();
+
+  $books = $stmt->fetchAll(PDO::FETCH_ASSOC);
+  } catch (PDOException $e){
+    exit($e->getMessage());
+}
+だと動かない。なぜか。
+
+
+2：
+<form action="read.php" method="get" class="search-form">
+　　<input type="text" class="search-box" placeholder="商品名で検索" name="keyword" value="<?= $keyword ?>">
+</form>
+
+<form>の中に<input>を書かないと情報を送れない。一方、<input>だけでも入力ボックスは出てくる。やはり<form>で囲まないとだめか。
+
+
+3：
+'SELECT * FROM books WHERE book_name LIKE :keyword ORDER BY id DESC';
+このSQL分を、ORDER、WHEREの順に書くことはできないのか。
+
+
+4:
+11章 モデルとテーブルを作成しよう　より
+「このうちid、created_at、updated_atカラムはすでに設定されているので、titleカラムとcontentカラムを追加します。」
+なぜ既に設定されている？
+
+
+5：
+sqlが絡むphpに置いて、execute();は何の目的があるのか。記載のないコードもあるので。
+
+
+6:migrateできるときとできないときがある。なぜ？
+
+
+7：ルーティングのpostとgetの違いが分からない。
+
+8：　コントローラー　の中に　アクション（公的関数）　がある？　種類や名前はindex,create,などと既に決められている？
+
+9：　アクションの数だけルーティングが必要？
+
+10：ルーティングの->name('xxx')は必要？　名前を付けるだけならば不必要な気が。
+
+11：さらに、リダイレクト先を投稿一覧ページではなく投稿詳細ページにしたいので、route()メソッドの第2引数にPostモデルのインスタンス（$post）を渡します。
+→　「route()メソッドの第2引数にPostモデルのインスタンス（$post）を渡します。」理由が分からない。
+
+12：モデルはDBの数だけ、コントローラは1つだけ作ればいいのか。
+
+
+13:
+Route::get('/', function () {　　　←getが正解。
+    return view('welcome');
+
+Route::post('/', function () { 　　←postだとなぜだめなのか。
+    return view('welcome');
+
+
+14：
+アクションとヘルパーの違いは？　↓例
+     public function index() {        
+         return view('posts.index');
+     }
+}
+
+
+15：　コントローラーに付いて
+Route::get('/posts', [PostController::class, 'unkox'])->name('undex');
+
+Route::get('/posts/create', [PostController::class, 'uncreate'])->name('uncreate');
+
+Route::post('/posts', [PostController::class, 'store'])->name('store');
+
+この場合、/postsにアクセスした場合、2つのコントローラーが作動するのか。
+

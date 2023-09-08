@@ -1,0 +1,18 @@
+17章は覚えるまで繰り返しやった方が良い（時間もそんなにかからないし）
+18章も。少し時間かかるけど。Form に関する復習も総ざらいできる。
+
+
+getElementById() でid属性を取得することが基本だが、formの場合は直接できる。
+document.forms.'formのname属性';
+
+document.forms.'formのname属性'.'textboxのname属性'; と書くことも可。
+
+document.forms.'formのname属性'.'textboxのname属性'.value; と書けば入力された値を取得できる。
+
+
+ラジオボタンも同様らしい。
+document.forms.'formのname属性'.'inputのname属性'.value;
+
+配列風のデータで取得する場合は .value はいらない。
+
+<button></button> は <form></form>の外！

@@ -1,0 +1,4 @@
+SQLにも関数というものがある。
+now()は、現時刻を取得することが出来る関数。
+
+optionがdisabel selected option でも、selectにrequiredを付ければ入力漏れを防げる。
